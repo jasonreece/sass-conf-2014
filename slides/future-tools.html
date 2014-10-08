@@ -1,0 +1,93 @@
+<section>
+  <h1 id="future-tools">Future Tools</h1>
+  <h2 id="beyond-live-style-guides">Beyond Live Style Guides</h2>
+  <h2 id="adam-detrick">Adam Detrick</h2>
+  <h3 id="ui-design-architect-meetup">UI Design Architect, Meetup</h3>
+  <h3 id="akdetrick"><a href="https://www.twitter.com/akdetrick">@akdetrick</a></h3>
+  <h3 id="slides"><a href="github.com/akdetrick/sassconf">Slides</a></h3>
+</section>
+
+<section>
+  <h2 id="meetup-had-a-problem">Meetup had a problem</h2>
+  <ul>
+    <li>Different teams worked on different products.  Creates duplication.</li>
+    <li>Had 13 types of popover.</li>
+    <li>No central design voice</li>
+    <li>You could tell which team built a feature</li>
+    <li>Inconsistent basic UI components</li>
+    <li>Horribly bloated CSS</li>
+    <li>CSS trust death spiral</li>
+    <li>After 10 yrs of CSS we regularly hit the 288kb per-stylesheet IE Limit.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="design-driven-development-tools">Design Driven Development Tools</h2>
+  <ul>
+    <li>CSS Foundation - <a href="https://github.com/meetup/sassquatch">Sassquatch</a></li>
+    <li><a href="github.com/trulia/hologram">Hologram</a></li>
+    <li><a href="github.com/meetup/meetup-swatches">Rothko</a></li>
+    <li>CSS</li>
+    <li><a href="bower.io">Bower</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tool-1-css-foundation">Tool 1 - CSS Foundation</h2>
+  <ul>
+    <li><a href="https://github.com/meetup/sassquatch">Sassquatch</a></li>
+    <li><a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/">About HTML semantics and front-end architecture</a></li>
+    <li>Class name semantics are arbitrary - except for the people working with the code...</li>
+    <li>Embrace document flow by setting useful base styles.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="be-explicit-not-implicit">Be explicit, not implicit</h2>
+  <pre><code>// clever
+.unit .docsection:first-child {
+  padding-top: $spacing;
+  border-top: 0;
+}
+
+// better
+.docsection--boxhead {
+  padding-top: $spacing;
+  border-top: 0;
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="tool-2">Tool 2</h2>
+  <ul>
+    <li><a href="github.com/trulia/hologram">Hologram</a> - living styleguide generator</li>
+    <li>Static (unatutomated) documentation is a lie waiting to happen</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tool-3-rothko">Tool 3</h2>
+  <ul>
+    <li><a href="github.com/meetup/meetup-swatches">Rothko</a></li>
+    <li>Uses colors.yml for Variables</li>
+    <li>making.meetup.com</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tool-4-css">Tool 4 - CSS</h2>
+  <ul>
+    <li>Specificity and the cascade.</li>
+    <li>Nobody wins in an !important war.</li>
+    <li>Martin Fowler <a href="http://www.martinfowler.com/bliki/StranglerApplication.html">Strangler Application</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tool-5-bower">Tool 5</h2>
+  <ul>
+    <li><a href="bower.io">Bower</a></li>
+    <li>Have a clean spot, and protect it as much as you can.</li>
+    <li>Bower allows separation from app code.</li>
+  </ul>
+</section>

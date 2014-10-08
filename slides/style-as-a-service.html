@@ -1,0 +1,202 @@
+<section>
+  <h1 id="style-as-a-service">Style as a Service</h1>
+  <h2 id="maintaining-style-across-multiple-websites" class="t-color-gray">Maintaining Style Across Multiple Websites</h2>
+  <h2 id="shay-howe">Shay Howe</h2>
+  <h3 id="director-of-product-belly">Director of Product, Belly</h3>
+  <h3 id="learnshayhowecom"><a href="learn.shayhowe.com">learn.shayhowe.com</a></h3>
+  <h3 id="shayhowe"><a href="https://www.twitter.com/shayhowe">@shayhowe</a></h3>
+  <h3 id="slides"><a href="https://speakerdeck.com/shayhowe/style-as-a-service-maintaining-style-across-multiple-websites">Slides</a></h3>
+</section>
+
+<section>
+  <h1 id="we-build-a-lot-of-websites">We build a lot of websites</h1>
+  <h2 id="a-ton-really">A ton, really...</h2>
+  <ul>
+    <li>Member facing</li>
+    <li>Merchant facing</li>
+    <li>Both with separate codebases.  Duplicate styles</li>
+    <li><strong>We can do better.</strong></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="service-oriented-architecture-soa">Service-Oriented Architecture - (SOA)</h2>
+  <ul>
+    <li>Databases on one end</li>
+    <li>Opposite end has clients, ui's</li>
+    <li>Allows sharing of styles.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="style-as-a-service_1">Style as a Service</h2>
+  <ul>
+    <li>Sass</li>
+    <li>Coffeescript modules</li>
+    <li>Images</li>
+    <li>Miscellaneous Assets</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="bellys-mini-boostrap">Belly's mini Boostrap</h2>
+  <ul>
+    <li><a href="github.com/bellycard/rolodex">Rolodex</a></li>
+    <li>Disclaimer - It's not perfect, you may disagree on what we are doing.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="architecture_1">Architecture</h2>
+  <p><code>bundle install rolodex</code></p>
+</section>
+
+<section>
+  <h3 id="tools">Tools:</h3>
+  <ul>
+    <li>Autoprefixer</li>
+    <li>Sass</li>
+    <li>Sprockets</li>
+  </ul>
+</section>
+
+<section>
+  <h3 id="organization">Organization:</h3>
+  <ul>
+    <li>23 Sass files</li>
+    <li>7 SCSS files Specific to variables</li>
+    <li>6 folders</li>
+    <li><a href="https://speakerdeck.com/shayhowe/style-as-a-service-maintaining-style-across-multiple-websites">Screenshot of file organization</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="process_1">Process</h2>
+  <ul>
+    <li>Parallel Development - Work in the context of real content, not style Guide</li>
+    <li>Application -&gt; Toolkit -&gt; Style Guide (Style guide first is typically not realistic)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="groundwork">Groundwork</h2>
+  <ul>
+    <li>Set the stage for what will be - base styles</li>
+    <li>Then organize Components</li>
+    <li>Provide Settings</li>
+    <li>Add components as needed, not as wanted</li>
+    <li>Don't try to force too much.</li>
+    <li>alerts, buttons, dropdowns, forms, media, tables, tooltips, etc</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="rinse-and-repeat">Rinse and Repeat</h2>
+  <ul>
+    <li>Watch for duplicate code, then refactor</li>
+    <li>adjust as needed</li>
+    <li>Create new variables - maps</li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="implementation">Implementation</h1>
+</section>
+
+<section>
+  <h2 id="single-responsibility-principle">Single Responsibility Principle</h2>
+  <ul>
+    <li>Every class should have a single responsibility</li>
+    <li>Responsibility should be encapsulated</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="decouple-html-and-css">Decouple HTML and CSS</h2>
+  <ul>
+    <li>Remove parent container dependency</li>
+    <li>Allow elements to adapt</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="keep-specificity-low">Keep Specificity Low</h2>
+  <ul>
+    <li>Be explicit</li>
+    <li>Use Classes</li>
+    <li>Avoid nested selectors</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="name-with-care">Name with care</h2>
+  <ul>
+    <li>Name for understanding - so developers will know what is going on</li>
+    <li>Favor functional names </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="intelligently-use-extends">Intelligently Use Extends</h2>
+  <ul>
+    <li>Extend common property and value pairs</li>
+    <li>Favor placholder extends</li>
+    <li>Don't chain extends</li>
+    <li>Use a sensible pattern</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="leverage-maps">Leverage maps</h2>
+  <ul>
+    <li>Dynamically generate styles</li>
+    <li>Easily write extends</li>
+    <li>Quickly build components</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="watch-your-output">Watch Your Output</h2>
+  <ul>
+    <li>Test early, test often</li>
+    <li>Monitor speed and performance</li>
+    <li>Concatenate &amp; compress files</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="measure-your-improvements">Measure your Improvements</h2>
+  <ul>
+    <li>Identify a baseline</li>
+    <li>Select a few KPIs (File size, # of rulesets, # of properties like float)</li>
+    <li>Look into stylestats, csscss, and csslint</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="final-thoughts">Final Thoughts</h2>
+  <ul>
+    <li>Dig into the Sass documentation - functions, etc.</li>
+    <li>Learn your environment - Ruby, etc.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="dont-overthink">Don't Overthink</h2>
+  <ul>
+    <li>Write code out the long way, then refactor</li>
+    <li>Rename, rewrite, and refactor willingly</li>
+    <li>Keep an eye on output (Sassmeister)</li>
+    <li>Document everything! (How, What, and Why)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="work-together">Work Together</h2>
+  <ul>
+    <li>Seek help and get feedback</li>
+    <li>Open the style framework to everyone</li>
+    <li>Get feedback from Twitter</li>
+  </ul>
+</section>
+

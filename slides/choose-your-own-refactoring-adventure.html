@@ -1,0 +1,186 @@
+<section>
+  <h1 id="choose-your-own-refactoring-adventure">Choose Your Own Refactoring Adventure</h1>
+  <h2 id="jina-bolton-jina">Jina Bolton <a href="http://twitter.com/jina">@jina</a></h2>
+  <h2 id="elyse-holliday-elyseholladay">Elyse Holliday <a href="http://twitter.com/elyseholladay">@elyseholladay</a></h2>
+  <h3 id="slides-repo-for-talk"><a href="http://jina.github.io/refactoring/#/">Slides</a> &amp; <a href="github.com/jina/refactoring">Repo for Talk</a></h3>
+</section>
+
+<section>
+  <h2 id="clarity">Clarity</h2>
+  <ul>
+    <li>Code should be clear</li>
+    <li>Well-commented</li>
+    <li>Follow consistent rules.</li>
+    <li>Easily understandable</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="maintainability">Maintainability</h2>
+  <ul>
+    <li>Easy to update and maintain</li>
+    <li>Not requiring hacks or over specific styles</li>
+    <li>It should be clear where files and styles belong</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="efficiency">Efficiency</h2>
+  <ul>
+    <li>Easy to Find where styles live</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="dry">Dry</h2>
+  <ul>
+    <li>Be usuable</li>
+    <li>Have efficient selectors</li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="make-refactoring-a-regular-part-of-your-workflow">Make Refactoring a Regular Part of Your Workflow</h1>
+</section>
+
+<section>
+  <h2 id="refactoring">Refactoring</h2>
+  <ul>
+    <li>Changing the structure of existing code without changing its behavior</li>
+    <li>Supports the process of changes,</li>
+    <li>Makes it easier to modify and maintain in the future</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="why-we-dont-refactor">Why We Dont Refactor</h2>
+  <ul>
+    <li>Team doesn't understand how</li>
+    <li>Long-term benifits aren't worth immediate effort</li>
+    <li>Overhead; youre paid to write new features</li>
+    <li>It might break something</li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="why-sass-helps-with-refactoring">Why Sass Helps With Refactoring</h1>
+</section>
+
+<section>
+  <h2 id="systems-not-pages">Systems, Not Pages</h2>
+  <ul>
+    <li>Refactoring should promote systems</li>
+    <li>Separation of concerns</li>
+    <li>Importing files, folder struction</li>
+    <li>Variables</li>
+    <li>Mixins and extends</li>
+    <li>Nesting and namespacing</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="creating-variables">Creating Variables</h2>
+  <ul>
+    <li>CMD + option + f is best friend</li>
+    <li>Search for all instances of styles and set to variable</li>
+    <li>Use <a href="https://github.com/jina/refactoring/blob/master/examples/abstracted-var-names.md">abstracted variable names</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="grunt">Grunt</h2>
+  <p><a href="https://github.com/jina/refactoring/blob/master/examples/sample-grunt-config.json">Sample Config</a>
+  <a href="https://github.com/jina/refactoring/blob/master/examples/useful-grunt-plugins.md">Useful Plugins</a></p>
+</section>
+
+<section>
+  <h1 id="namespaceing">Namespacing</h1>
+</section>
+
+<section>
+  <h2 id="simple-namespacing">Simple Namespacing</h2>
+  <ul>
+    <li>Sample <a href="https://github.com/jina/refactoring/blob/master/examples/simple-namespacing.scss">Simple Namespacing</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="state-classes">State Classes</h2>
+  <ul>
+    <li>Sample <a href="https://github.com/jina/refactoring/blob/master/examples/state-classes.scss">State classes</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="parent-selector">Parent Selector</h2>
+  <ul>
+    <li>Sample <a href="https://github.com/jina/refactoring/blob/master/examples/parent-selector.scss">Parent Selector</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="refactor-my-stylesheets">Refactor My Stylesheets</h2>
+  <ul>
+    <li>Chris Eppstein's <a href="http://chriseppstein.github.io/blog/2010/05/25/refactor-my-stylesheets-digg-edition/">refactor my stylesheets article</a></li>
+    <li>Extract Partial</li>
+    <li>Analyze Styles</li>
+    <li>Find Repeating Patterns</li>
+    <li>Selector Duplication that iplies inheritance relationship</li>
+    <li>Repeating patterns </li>
+    <li>Complex Nesting</li>
+    <li>CSS class that can function as a base class, ie button</li>
+    <li>Edit HTML classes</li>
+    <li>Apply Variables</li>
+    <li>Create Mixins</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="naming-conventions">Naming Conventions</h2>
+  <ul>
+    <li>Choose a nameing convention that works for you</li>
+    <li>Be consistent: <code>.section, .section-item, .section-item-thingy</code></li>
+    <li>OOCSS, BEM, SMACSS</li>
+    <li>Organizing Properties - alphabetical, property type, camelCase vs underscore vs dashes</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="living-style-guides">Living Style Guides</h2>
+  <ul>
+    <li>Document your design and brand standards</li>
+    <li>naming conventions, etc.</li>
+    <li>Keep Styleguide current and useful</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tools">Tools:</h2>
+  <ul>
+    <li><a href="http://warpspire.com/kss/">KSS</a></li>
+    <li><a href="http://jacobrask.github.io/styledocco/">StyleDocco</a></li>
+    <li><a href="https://github.com/trulia/hologram">Hologram</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="comments">Comments</h2>
+  <ul>
+    <li>Comment each file to explain what is in it</li>
+    <li>Coment every large section of CSS</li>
+    <li>Comment individual items that need clarification</li>
+    <li>Be consistent</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="testing-tools">Testing Tools</h2>
+  <ul>
+    <li>Phantom CSS</li>
+    <li>Diffux</li>
+    <li>Wraith</li>
+    <li>Huxley</li>
+    <li><a href="https://github.com/ericam/true">True</a></li>
+  </ul>
+</section>
+

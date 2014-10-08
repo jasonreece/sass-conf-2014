@@ -1,0 +1,153 @@
+<section>
+  <h1 id="large-scale-sass">Large Scale Sass</h1>
+  <h2 id="jackie-balzer-behance">Jackie Balzer - Behance</h2>
+  <h2 id="kyle-fiedler-thoughtbot">Kyle Fiedler - Thoughtbot</h2>
+  <h2 id="scott-kellum-vox">Scott Kellum - Vox</h2>
+</section>
+
+<section>
+  <h2 id="keep-code-simple">Keep Code Simple</h2>
+  <ul>
+    <li>Other developers should easily understand it.</li>
+    <li>Behance doesn't use a grid framework.</li>
+    <li>Write the css that you need, then refactor it.</li>
+    <li>Scott - Using a hybrid of BEM and SMACSS to keep cascade shallow.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="organization">Organization</h2>
+  <ul>
+    <li>Thoughtbot - uses modified atomic design.  Slowly build up class names.  Directories follow that structure.</li>
+    <li>Vox - very module focused.  With Ruby partials with various components.  Easy to find code.  Uses variables and nesting to create BEM classes.</li>
+    <li>Behance - uses modules for code org and reuse.<br />
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="precautions-to-not-be-too-clever-with-naming-conventions">Precautions to not be too clever with naming conventions.</h2>
+  <ul>
+    <li>Thoughtbot - does pull requests, and guides with standards.<br />
+    </li>
+    <li>Behance - does pull requests, doesn't use BEM, just checks for sanity.  Uses scss lint on code.  Alphabatizes declarations</li>
+    <li>Vox - works in small teams per site.  Each person on team is responsible for meeting standards.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="describe-workflow">Describe Workflow</h2>
+  <ul>
+    <li>Behance - has teamlets, comprised of designer, css, js, backend, dev ops, and community teams.  Gets code and tasks going quickly.  Things go directly to master.</li>
+    <li>Thoughtbot - One designer, two devs.</li>
+    <li>Vox - Small teams typically make for large production.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="is-there-an-effort-to-bring-up-skill-level-after-handoff">Is there an effort to bring up skill level after handoff?</h2>
+  <ul>
+    <li>Thoughtbot - best thing is to pair.</li>
+    <li>Behance - Doesn't have system in place for that. </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="has-sass-enabled-better-communication-between-front-end-back-end-and-design">Has Sass enabled better communication between front-end, back-end, and design?</h2>
+  <ul>
+    <li>Vox - our small teams typically collaborate well together.  All about communication</li>
+    <li>Thoughtbot - Doesn't need that communication bridge.  Suggests naming things well.</li>
+    <li>Behance - Has designers that don't code.  Developers that don't design.  Sass hasn't made Backend (PHP) care about the front-end.  But they love how quickly front-end workflows are with Sass.  And they like that Sass makes front-end devs more interested in programming.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="how-much-do-you-use-linting">How much do you use linting?</h2>
+  <ul>
+    <li>Vox - just had first css lint experience.  Turned it off after a week.</li>
+    <li>Thoughtbot - Not much experience</li>
+    <li>Behance - Fucking love Linting!  Uses css-lint.  Has test suite that runs after pull-request.  If it doesn't pass, the pull request doesn't go through</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tips-on-performance">Tips on Performance?</h2>
+  <ul>
+    <li>Behance - avoiding using lots of tools.  Checking performance in Devtools.  Run a test.  Find what is slow. Clean it up.</li>
+    <li>Thoughtbot - we avoid using selectors that don't perform well.  Minification, etc.</li>
+    <li>Vox - Frag Rate checker.  Has automated suite test that graphs how sites load over time.  Look for spikes and figure out what we commited during that time.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="most-memorable-deployment-fail">Most memorable deployment fail</h2>
+  <ul>
+    <li>Vox - issues with fonts!</li>
+    <li>Behance - about to announce stuff in tech crunch, getting lot of exposure, moments before the site was going live, wanted to add blog feed.  Wrote PHP for that.  Article goes live, and the Blog failed, so then Behance itself failed.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tips-for-optimizing">Tips for optimizing</h2>
+  <ul>
+    <li>Behance - Deleting box shadows</li>
+    <li>Thoughtbot - Yes, and all of css3</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="opinions-on-inlining-critical-css-in-head-of-main-page">Opinions on inlining critical CSS in head of main page?</h2>
+  <ul>
+    <li>Thoughtbot - Hasn't tried that</li>
+    <li>Behance - Hasn't tried that, uses minification for css and require.js for JS</li>
+    <li>Vox - We don't do that.  But there is a tool called Jacket that could help with that.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="average-build-process">Average Build Process?</h2>
+  <ul>
+    <li>Vox - Rails Asset Pipeline and Grunt for SVG stuff</li>
+    <li>Thoughtbot - Rails Asset Pipeline</li>
+    <li>Behance - Custom PHP framework, doesn't have Asset Pipeline.  Sass actually isn't compiled in build script.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="sass-organization">Sass Organization</h2>
+  <ul>
+    <li>Behance - lots of partials and reusable modules</li>
+    <li>Thoughtbot - partials</li>
+    <li>Vox - partials, consistent style guide, consistent methodologies</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="if-site-styles-itself-what-are-you-doing">If site styles itself, what are you doing?</h2>
+  <ul>
+    <li>Behance - CSS team has been doing more JS and PHP</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="pattern-for-theming">Pattern for theming?</h2>
+  <ul>
+    <li>Behance - Has multiples galleries with different themes.  Use variables once, then update variables for each new theme.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="styling-base-elements">Styling Base Elements?</h2>
+  <ul>
+    <li>Behance - I do it. </li>
+    <li>Thoughtbot - Bitters</li>
+    <li>Vox - Resets are editable.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="code-conventions-alphabetical">Code Conventions?  Alphabetical?</h2>
+  <ul>
+    <li>Behance - Agrees with default scss.lint setup.</li>
+  </ul>
+</section>

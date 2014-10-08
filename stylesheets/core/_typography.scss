@@ -1,0 +1,18 @@
+// -------------------------------------
+//   Typography
+// -------------------------------------
+// ----- Global typography classes
+// -------------------------------------
+
+$type-colors: (
+  'color-yellow': $color-yellow,
+  'color-orange': $color-orange,
+  'color-green': $color-green,
+  'color-gray': $color-mid-gray
+);
+
+@each $color, $hex in $type-colors  {
+  .reveal .t-#{$color} {
+    color: #{$hex};
+  }
+}

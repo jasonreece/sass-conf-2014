@@ -1,0 +1,111 @@
+<section>
+  <h1 id="keynote-tab-atkins-the-future-of-css">The Future of CSS - Keynote</h1>
+  <h2 id="tab-atkins">Tab Atkins</h2>
+  <h3 id="spec-hacker-for-google">Spec Hacker for Google</h3>
+  <h3 id="xanthircom"><a href="http://www.xanthir.com">xanthir.com</a></h3>
+  <h3 id="tabatkins"><a href="http://www.twitter.com/tabatkins">@tabatkins</a></h3>
+</section>
+
+<section>
+  <ul>
+    <h2 id="the-future-of-css">The Future of CSS</h2>
+    <li>Languages can't grow too big, or stop growing.</li>
+    <li>Large Features take time - Flexbox has taken 5 years.  Grid, etc.</li>
+    <li>CSS can't currently be extended.</li>
+    <li>This makes new developments very limited.</li>
+    <li>css <a href="http://css-tricks.com/almanac/selectors/m/matches/">:matches</a> will solve @extend issues with Sass</li>
+    <li>css variables - have been a feature request from the very beginning</li>
+  </ul>
+  <pre><code>foo {
+  --bar: literally anything;
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="css-extensions">CSS Extensions</h2>
+  <ul>
+    <li>The most important emerging CSS feature.</li>
+    <li>Will make CSS author extensible</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="custom-media-queries">Custom Media Queries</h2>
+  <pre><code>@custom-media --small-screen (max-width: 25em);
+  @media (--small-screen) {
+  ...
+}</code></pre>
+  <p>Or </p>
+  <pre><code>&lt;script&gt;CSS.cusomMedia.set('--date', ...);&lt;/script&gt;
+  @media (--date: 20141002) and (1100 &lt;; = --time &lt; 1150) {
+  ...
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="custom-functions">Custom Functions</h2>
+  <pre><code>foo {
+  color: --lighter(red);
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="custom-at-rules">Custom At-Rules</h2>
+  <pre><code>@--mixin foo(x,y,z) {
+  div.bar {
+    @--include foo(...);
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="project-lipstick">Project Lipstick</h2>
+  <h3>Further CSS Extensions using JS</h3>
+  <ul>
+    <li>Improves layouts - beyond Flexbox and Grids</li>
+    <li>Exposes ability to paint pixels to the screen</li>
+    <li>Similar to native platforms</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="element-queries">Element Queries</h2>
+  <ul>
+    <li><a href="http://www.smashingmagazine.com/2013/06/25/media-queries-are-not-the-answer-element-query-polyfill/">Intro to Element Queries</a></li>
+    <li>Actually work today if you are willing to use an &lt;iframe&gt;</li>
+    <li>Will probably be most useful in web components</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="why-do-forms-suck">Why do forms suck?</h2>
+  <ul>
+    <li>Each browser is doing drastically different things.</li>
+    <li>Writing a form styling spec is on the list of things to do... possibly next year.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="constraint-based-layout">Constraint Based Layout</h2>
+  <ul>
+    <li>Similar to Swift</li>
+    <li>Has been researched for 3+ years at Google</li>
+    <li>Not likely to emerge as part of native CSS</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="native-css-extends">Native CSS Extends</h2>
+  <ul>
+    <li>Should be in the browser fairly soon.  Wating on Chris Eppstein.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="parent-selectors">Parent Selectors</h2>
+  <ul>
+    <li>Currently all combinators go down the tree and Browsers read right to left</li>
+    <li>Soonish the spec is adding :has</li>
+    <li><code>dt:has( + dt)</code></li>
+  </ul>
+</section>

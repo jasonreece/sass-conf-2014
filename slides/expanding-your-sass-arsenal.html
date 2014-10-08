@@ -1,0 +1,288 @@
+<section>
+  <h1 id="expanding-your-sass-arsenal">Expanding Your Sass Arsenal</h1>
+  <h2 id="anthony-dispezio">Anthony DiSpezio</h2>
+  <h3 id="adispezio"><a href="http://www.twitter.com/adispezio">@adispezio</a></h3>
+  <h3 id="slides"><a href="anthonydispezio.com/sassconf2014">Slides</a></h3>
+</section>
+
+<section>
+  <h2 id="overview">Overview</h2>
+  <ul>
+    <li>Functions, Mixins, Extends</li>
+    <li>Maps and Loops</li>
+    <li>Bulletproofing</li>
+    <li>Media Query Techniques</li>
+    <li>Questions / Discussions</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="function">@Function</h2>
+  <ul>
+    <li>accept input, return value;</li>
+    <li><code>background: lighten(blue, 10%);</code></li>
+    <li>colors, strings, numbers, Lists / maps, Selectors, Introspectives</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="writing-custom-functions">Writing Custom Functions</h2>
+  <ul>
+    <li><a href="http://sassmeister.com/gist/90291be6fe6840ec61b9">Example</a></li>
+  </ul>
+  <pre><code>@function double($number) {
+  @return $number * 2;
+}
+
+.box {
+  width: double(3);
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="functions-are-great-for-11-property-mixins">Functions are great for 1:1 Property Mixins</h2>
+  <ul>
+    <li><a href="http://sassmeister.com/gist/151028cdcf6dcedb4e84">Example</a></li>
+  </ul>
+</section>
+
+<section>
+  <pre><code>// OKAY
+@mixin double-width($value) {
+  width: $value * 2;
+}
+
+.box {
+  @include double-width(40px);
+}
+
+// BETTER!
+@function double-width($value) {
+  @return $value * 2;
+}
+
+.box {
+  width: double-width(40px);
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="mixins">@mixins</h2>
+  <ul>
+    <li><a href="http://sassmeister.com/gist/fa7dccc162fd8e0ed0b8">Example</a></li>
+  </ul>
+  <pre><code>@mixin button($background) {
+  background: $background;
+  border: 3px solid black;
+}
+
+.search-button {
+  @include button(blue);
+}
+
+.cancel-button {
+  @include button(red);
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="arguments-can-have-defaults">Arguments can have defaults</h2>
+  <ul>
+    <li>Arguments can also be set to null</li>
+    <li>This prevents declarations from being written unless arg is called.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="useful-mixins">Useful Mixins</h2>
+  <ul>
+    <li><a href="http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like">Cover and Center</a></li>
+    <li><a href="http://joshbroton.com/quick-fix-sass-mixins-for-css-keyframe-animations/">Keyframe Animations</a></li>
+    <li><a href="http://web-design-weekly.com/2013/05/12/handy-sass-mixins/">Text Overflow</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="the-downside-to-mixins">The downside to mixins</h2>
+  <ul>
+    <li>Declarations get rewitten every time</li>
+    <li>Causes code bloat</li>
+    <li>Use @mixin for Dynamic Properties</li>
+    <li>Use @extend for static properties</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="extend">@extend</h2>
+  <ul>
+    <li>Extend groups the extended selectors together</li>
+    <li><a href="http://sassmeister.com/gist/c876a2baf93a98085ca5">Example</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="move-the-class-inside-the-mixin">Move the class inside the @mixin</h2>
+  <pre><code>@mixin button($name, $background) {
+  .#{$name}-button {
+    @extend %button-base;
+    background: $background;
+  }
+}
+
+%button-base {
+  border: 3px solid black;
+}
+
+@include button(&quot;search&quot;, blue);
+@include button(&quot;cancel&quot;, red);</code></pre>
+</section>
+
+<section>
+  <h2 id="separate-variables-from-logic">Separate Variables from Logic</h2>
+  <ul>
+    <li><a href="http://sassmeister.com/gist/f53c71cd871a2d606d8a">Example</a></li>
+  </ul>
+</section>
+
+<section>
+  <pre><code>// _variables.scss
+$search-background: blue;
+$cancel-background: red;
+
+// _buttons.scss
+@mixin button($name, $background) {
+  .#{$name}-button {
+    @extend %button-base;
+    background: $background;
+  }
+}
+
+%button-base {
+  border: 3px solid black;
+}
+
+@include button(&quot;search&quot;, $search-background);
+@include button(&quot;cancel&quot;, $cancel-background);</code></pre>
+</section>
+
+<section>
+  <h2 id="maps">Maps</h2>
+  <ul>
+    <li>A list of keys and values</li>
+  </ul>
+  <pre><code>$map: {
+  key: value,
+  key: value,
+  key: value
+}</code></pre>
+  <p><a href="http://sassmeister.com/gist/12cd2e50218f3524d1c8">Example</a></p>
+</section>
+
+<section>
+  <h2 id="loops-for-each-while">Loops - @for, @each, @while</h2>
+  <ul>
+    <li><a href="http://sassmeister.com/gist/3463cae4562c09adcf8e">Example</a></li>
+    <li>Anna Tudor's <a href="http://codepen.io/thebabydino/">Codepens</a></li>
+  </ul>
+</section>
+
+<section>
+  <pre><code>$buttons: (
+  search: (
+    background: blue,
+    icon: &quot;magnifying-glass.png&quot;
+  ),
+  cancel: (
+    background: red,
+    icon: &quot;checkmark.svg&quot;
+  ),
+  success: (
+    background: green
+  )
+);
+
+%button-base {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+@each $buttonName, $buttonProps in $buttons {
+  .#{$buttonName}-button {
+    @extend %button-base;
+    color: map-get($buttonProps, background);
+    @if (map-get($buttonProps, icon)){
+      background-image: url(images/#{map-get($buttonProps, icon)});
+    }
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="bulletproofing-sass">Bulletproofing Sass</h2>
+  <ul>
+    <li>@debug, @warn, and @error</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="debug">@debug</h2>
+  <ul>
+    <li>@debug is great for testing</li>
+    <li>doesn't work in Sassmeister</li>
+    <li>Works like console.log</li>
+    <li>Can log out strings, variables, numbers</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="warn">@warn</h2>
+  <ul>
+    <li>For non-fatal issues</li>
+    <li>Can be silenced with :quiet argument</li>
+  </ul>
+  <pre><code>// Example warning in a function
+@function width($num) {
+  @return $num;
+  @if (type-of($num) == number) {
+    @warn &quot;Deprecated: In the future, this will fail if not a number.&quot;;
+  }
+}
+
+.button {
+  width: double-width(&quot;string&quot;);
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="error">@error</h2>
+  <ul>
+    <li>Causes a compile error</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="using-content">Using @content</h2>
+  <pre><code>@mixin respond($value) {
+  @media (min-width: #{$value}) {
+    @content;
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2 id="media-query-libraries">Media Query Libraries</h2>
+  <ul>
+    <li><a href="http://breakpoint-sass.com/">Breakpoint-Sass</a></li>
+    <li><code>$bp-middle: 400px 900px;</code><br />
+    </li>
+    <li>This outputs media query with min width and max width</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="sassy-json">Sassy JSON</h2>
+  <ul>
+    <li><a href="http://hugogiraudel.com/2014/01/20/json-in-sass/">Sassy JSON</a></li>
+  </ul>
+</section>
+

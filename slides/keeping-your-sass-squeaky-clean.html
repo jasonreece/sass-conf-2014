@@ -1,0 +1,280 @@
+<section>
+  <h1>Keeping Your Sass Squeaky Clean</h1>
+  <h2>Adam Onishi</h2>
+  <h3>Senior front End Dev - Architect</h3>
+  <h3><a href="http://www.twitter.com/onishiweb">@onishiweb</a></h3>
+  <h3><a href="https://speakerdeck.com/onishiweb/keeping-your-sass-squeaky-clean-sassconf-2014">Slides</a></h3>
+</section>
+
+<section>
+  <h3>Inspired by:</h3>
+  <p><a href="http://2014.fromthefront.it/en/stuart-robson.html">Make your code delicious</a> from <a href="http://twitter.com/sturobson">@sturobson</a> - heads up Sass News</p>
+</section>
+
+<section>
+  <h2>Squeaky Clean code is:</h2>
+  <ul>
+    <li>Maintainable</li>
+    <li>Understandable</li>
+    <li>Extendable</li>
+  </ul>
+</section>
+
+<section>
+  <h2>There are 4 parts:</h2>
+  <ul>
+    <li>Architecture</li>
+    <li>Sass Helpers / Mixins</li>
+    <li>Compass</li>
+    <li>Working with a team</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Architecture</h1>
+  <h2>File Organization -</h2>
+  <pre><code>Themes/
+    core/
+    brazil/
+    chile/
+    china/
+    etc/</code></pre>
+  <p>Site is Using Compass</p>
+</section>
+
+<section>
+  <h2>Components</h2>
+  <pre><code>core/
+    partials/
+      pages/
+        _404.scss
+        _front-page.scss
+        _more-views.scss
+        ...</code></pre>
+  <p>Tightly couplings templates and Sass Partials</p>
+</section>
+
+<section>
+  <h2>Variables</h2>
+  <p>doesn't use color names, uses sectional names </p>
+  <pre><code>$clr-brand
+$clr-kids-activities
+$clr-parenting</code></pre>
+</section>
+
+<section>
+  <h2>Layout &amp; Grid</h2>
+  <pre><code>.grid--half {
+  @extend %grid__item;
+  @extend %small--one-half
+}
+
+.grid--whole-whole-half {
+  @extend %grid__item;
+  @extend %small--one-whole;
+  @extend %large--one-half;
+}</code></pre>
+</section>
+
+<section>
+  <h1>Sass Helpers / Mixins</h1>
+</section>
+
+<section>
+  <h2>Media Queries: Set up Map</h2>
+  <pre><code>$breakpoints: (
+  'small': 25em,
+  'medium': 35em,
+  'large': ...
+);</code></pre>
+</section>
+
+<section>
+  <h2>Media Queries: Set up Mixin</h2>
+  <pre><code>$fix-mqs: false !default;
+@mixin respond-min($width) {
+  // If we're outputting for a fixed media query set...
+  @if $fix-mqs {
+     // ...and if we should apply these rules...
+     @if $fix-mqs >= $width {
+       // ..output the content the user gave us
+       @content;
+     }
+  } @else {
+    // Otherwise output it using a regular media query
+    @media screen and (min-width: $width) {
+      @content;
+    }
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Media Queries: Nest in Ruleset</h2>
+  <pre><code>.site-nav-bar {
+  width: 100%;
+  height: 50px;
+  @include respond-min(large) {
+    width: 300px;
+    height: 100%;
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>REMs Mixin</h2>
+  <pre><code>@mixin rem($property, $px-values, $baseline-px: $base-font-size) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem;
+
+  // Create an empty list that we can dump values into
+  $rem-values: ();
+  @each $value in $px-values {
+    // If the value is zero, return 0
+    $rem-values: append($rem-values, if($value == 0, $value, $value / $baseline-rem));
+  }
+
+  // Output the property's px and rem values
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}</code></pre>
+</section>
+
+<section>
+  <h2>REMs Usage</h2>
+  <pre><code>@mixin font-size ($size){
+   @include rem('font-size', $size + px);
+}
+
+.selector {
+  @include font-size(20);
+}</code></pre>
+</section>
+
+<section>
+  <h2>@extends</h2>
+
+  <p>Extend carefully</p>
+  <ul>
+    <li>Clearfix</li>
+    <li>Text Indent</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Compass</h1>
+</section>
+
+<section>
+  <h2>Images</h2>
+  <p>Compass helps with Images</p>
+  <pre><code>wp-content/
+  assets/
+    fonts/
+    images/
+      common/
+      page-headers/
+      etc/</code></pre>
+  <p>set image path with Compass' <code>config.rb</code></p>
+  <p>use compass image height and width functions;</p>
+</section>
+
+<section>
+  <h2>Inline Images</h2>
+  <p>Compass has inline image helper</p>
+</section>
+
+<section>
+  <h2>Sprites</h2>
+  <p>Compass has a sprite generator</p>
+  <p>Compass stacks sprites by default.  Tall images are bad for performance.  May need to build own sprite it too large.</p>
+</section>
+
+<section>
+  <h2>Functions</h2>
+  <p>Compass has additional color functions</p>
+  <p><code>shade($clr-brand, 10%);</code></p>
+</section>
+
+<section>
+  <h2>CSS3 Mixins</h2>
+  <p>Compass has a mixin library</p>
+</section>
+
+<section>
+  <h2>Build Tools</h2>
+  <p>Grunt Watch: a bit slow.  Native Compass Watch is faster.</p>
+  <p><code>compass watch &amp; grunt watch</code></p>
+</section>
+
+<section>
+  <h1>Working with a team</h1>
+</section>
+
+<section>
+  <h2>Have a common starting point</h2>
+  <ul>
+    <li>Not a huge fan of one size fits all Boilerplates - Bootstrap, etc</li>
+    <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> - great starting point, but I still take things out.</li>
+    <li><a href="https://github.com/wearearchitect/Frontend-Boilerplate">Architect's Boilerplate</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Share</h2>
+  <ul>
+    <li>Developer Dejeuner - get team together, buy lunch, and 2 - 3 people give talk.</li>
+    <li>Every line of code should appear to be written by a single person, no matter the number of contributors - Rick Waldron (idiomatic.js)</li>
+    <li>Idiomatic Sass</li>
+  </ul>
+</section>
+
+<section>
+  <h2>The Rules</h2>
+  <ul>
+    <li>Based off of Velominati - keepers of the cog - Cyclist thing... </li>
+    <li><a href="https://github.com/wearearchitect/Frontend-Rules">Architect's Front End Rules</a></li>
+    <li>Obey The Rules - Unless you've got a good reason</li>
+    <li>Lead by Example</li>
+    <li>Guide the Ininitiated</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Code Reviews</h2>
+  <p>Uses Pull Request work flow.</p>
+</section>
+
+<section>
+  <h2>Is that squeaky clean?</h2>
+  <ul>
+    <li>Architecture - views tightly coupled with sass partials.</li>
+    <li>Sass and Compass - Is code readible and easy to follow?</li>
+    <li>Team - On the same page?</li>
+  </ul>
+</section>
+
+<section>
+<h2>Refactoring</h2>
+  <ul>
+    <li>Refactoring is for people with their priorities in order.</li>
+    <li>Switching to maps. Using nested maps.</li>
+    <li>Using loops.</li>
+    <li>Using <a href="github.com/causes/scss-ling">scssLint</a></li>
+    <li>Using <a href="github.com/ullmark/grunt-ucss">ucss</a> / <a href="github.com/giakki/uncss">uncss</a></li>
+    <li>Using <a href="http://csswizardry.com/2013/04/shame-css/">Shame.css</a></li>
+    <li>Using Autoprefixer</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Performance</h2>
+  <ul>
+    <li><a href="http://css-tricks.com/one-two-three/">Multiple Stylesheets</a> by Chris Coyier</li>
+    <li>Critical Path CSS - head.css</li>
+  </ul>
+</section>
+
+<section>
+  <h2>We're All Still Learning</h2>
+</section>

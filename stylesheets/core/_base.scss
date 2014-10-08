@@ -1,0 +1,103 @@
+// -------------------------------------
+//   Base
+// -------------------------------------
+// ----- Global defaults for Base-level tags (body, p, etc.)
+// -------------------------------------
+
+::selection {
+  background: $color-yellow;
+  color: #fff;
+  text-shadow: none;
+}
+
+body {
+  color: $color-dark-gray;
+  font-family: $font-cs-medium;
+  // overflow-y: scroll;
+}
+
+.reveal .slides {
+  // text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal p {
+  color: $color-dark-gray;
+  font-weight: normal;
+  padding-bottom: 0.1em;
+}
+
+.reveal h1 {
+  font-family: $font-cs-demi;
+  line-height: 1.1em;
+}
+
+.reveal h2 {
+  color: $color-yellow;
+  font-family: $font-cs-demi;
+  line-height: 1.1em;
+}
+
+.reveal h3 {
+  font-family: $font-cs-demi;
+}
+
+.reveal p {
+  font-family: $font-cs-medium;
+}
+
+.reveal a,
+.reveal a:not(.image) {
+  color: $color-orange;
+  display: inline-block;
+  padding-bottom: 0.1em;
+  @include attention() {
+    color: $color-orange;
+    text-decoration: underline;
+  }
+}
+
+.reveal strong {
+  font-family: $font-cs-bold;
+}
+
+.reveal li {
+  color: $color-dark-gray;
+  font-family: $font-cs-medium;
+  list-style-image: url('../img/disc.png');
+  padding-left: 5px;
+  padding-bottom: 15px;
+  ul li {
+    list-style-image: url('../img/disc-outline.png');
+  }
+}
+
+.reveal pre {
+  background: $color-dark-gray;
+  box-shadow: none;
+  font-family: $font-cs-demi;
+  margin: 1em 0;
+  width: 100%;
+  @include font-size(2.1);
+  @include line-height(2.1);
+
+  border: 1px solid #e2e2e2;
+  // overflow: scroll;
+  padding: 25px;
+  code {
+    // padding: 0;
+    background: $color-dark-gray;
+    max-height: 670px;
+  }
+}
+
+.reveal > code  {
+  background: $color-dark-gray;
+  color: #fff;
+  padding: 5px 15px;
+}

@@ -1,0 +1,92 @@
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+// ----- Placeholders, Extends, Mixins, and Functions, etc
+// -------------------------------------
+
+// -------------------------------------
+//   Placeholders
+// -------------------------------------
+
+// ----- Clearfix ----- //
+%clearfix:before,
+%clearfix:after {
+  content: " ";
+  display: table;
+}
+
+%clearfix:after {
+  clear: both;
+}
+
+%clearfix {
+  *zoom: 1;
+}
+
+// -------------------------------------
+//   Extends
+// -------------------------------------
+
+
+// -------------------------------------
+//   Mixins
+// -------------------------------------
+
+// ----- Adds responsive breakpoints. ----- //
+@mixin breakpoint($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+// ----- Adds accessibility pseudo selectors to hover states. ----- //
+@mixin attention() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+// ----- Rem font size mixin with px fallback. ----- //
+@mixin font-size($px-width) {
+  font-size: #{$px-width * 10}px;
+  font-size: #{$px-width}rem;
+}
+
+// ----- Rem line-height mixin with px fallback. ----- //
+@mixin line-height($px-height) {
+  line-height: #{$px-height * 10}px;
+  line-height: #{$px-height}rem;
+}
+
+// -------------------------------------
+//   Functions
+// -------------------------------------
+
+
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+
+.u-clearfix:before,
+.u-clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.u-clearfix:after {
+  clear: both;
+}
+
+.u-clearfix {
+  *zoom: 1;
+}
+
+.u-tac {
+  text-align: center;
+}
+
+.u-tal {
+  text-align: left;
+}

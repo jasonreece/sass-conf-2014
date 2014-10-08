@@ -1,0 +1,10 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Sass Conf 2014",
+    "packageVersion": "0.0.0",
+    "useSass": true,
+    "deployToGithubPages": true,
+    "githubUsername": "jasonreece",
+    "githubRepository": "sass-conf-2014"
+  }
+}

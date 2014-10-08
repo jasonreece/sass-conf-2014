@@ -1,0 +1,102 @@
+<section>
+  <h1 id="the-unconference">The Unconference</h1>
+    <ul>
+      <li>Shay Howe - Living Style Guides as a Service</li>
+      <li>Scott Davis - Compass 1.0</li>
+      <li>Eric M. Suzanne - Map Magic</li>
+      <li>Panel - Grids and Not Grids</li>
+    </ul>
+</section>
+
+<section>
+  <h1 id="shay-howe">Shay Howe</h1>
+  <h2>Living Style Guides (as a service)</h2>
+  <ul>
+    <li>Uses autoprefixr, middleman (with a dependency on Compass)</li>
+    <li><a href="https://github.com/salesforce-ux/theo">Theo</a></li>
+    <li><a href="https://gist.github.com/fosterinteractive/e8491ce60253eb4587b3#file-scss-lint-yml">.scss-lint.yml</a></li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="compass-10">Compass 1.0</h1>
+  <h2 id="scott-davis">Scott Davis</h2>
+  <h3><a href="http://www.twitter.com/jetviper21">@jetviper21</a></h3>
+  <h3><a href="http://sdavis.info">website</a></h3>
+  <h3><a href="http://www.github.com/scottdavis">github</a></h3>
+</section>
+
+<section>
+  <h2 id="youcanuseicanuse">youcanuseicanuse</h2>
+  <ul>
+    <li>Can tune prefixes based on caniuse</li>
+    <li><code>$graceful-usage-threshold</code></li>
+    <ul>
+      <li>these prefixes probably won't break layout if unsupported</li>
+      <li>border-radius, etc</li>
+    </ul>
+    <li><code>$critical-usage-threshold</code></li>
+    <ul>
+      <li>probably will break layout if unsupported</li>
+      <li>flexbox, grids, etc.</li>
+    </ul>
+  </ul>
+</section>
+
+<section>
+  <h2 id="sprites">Sprites</h2>
+  <ul>
+    <li><code>mysprite-layout: vertical;</code></li>
+    <li><code>mysprite-layout: horizontal;</code>*</li>
+    <li><code>mysprite-layout: diagonal;</code></li>
+    <li><code>mysprite-layout: smart;</code>*</li>
+    <p>* best performance</p>
+  </ul>
+</section>
+
+<section>
+  <h2 id="options-per-sprite-map">Options per Sprite map</h2>
+  <ul>
+    <li><code>$&lt;map&gt;-spacing</code></li>
+    <li><code>$&lt;map&gt;-repeat</code></li>
+    <li><code>$&lt;map&gt;-position</code></li>
+    <li><code>$&lt;map&gt;-sprite-dimensions</code></li>
+    <li><code>$&lt;map&gt;-sprite-base-class</code></li>
+    <li><code>$&lt;map&gt;-sprite-class-separator</code></li>
+    <li><code>$&lt;map&gt;-&lt;sprite&gt;-spacing</code></li>
+    <li><code>$&lt;map&gt;-&lt;sprite&gt;-repeat</code></li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="sass-map-magic">Sass Map Magic</h1>
+  <h2 id="eric-m-suzanne">Eric M Suzanne</h2>
+  <h3><a href="http://www.twitter.com/ericmsuzanne">@EricMSuzanne</a> &amp; <a href="http://www.twitter.com/oddestbirds">@oddestbirds</a> &amp;  <a href="http://www.twitter.com/sasssusy">@sasssusy</a></h3>
+  <h3 id="oddbirdnet"><a href="http://oddbird.net">oddbird.net</a></h3>
+  <h3 id="slides"><a href="http://www.ericsuzanne.com/pres/map-magic/">Slides</a></h3>
+  <ul>
+    <li>This was much too fast for notes, but the slides are amazing.</li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="grids-and-not-grids">Grids and Not Grids</h1>
+  <h2 id="eric-m-suzanne-susy">Eric M Suzanne - Susy</h2>
+  <h2 id="scott-kellum-created-singularity">Scott Kellum - Created Singularity</h2>
+  <h2 id="sam-richard-maintains-singularity">Sam Richard - Maintains Singularity</h2>
+</section>
+
+<section>
+  <h2 id="grids-and-not-grids-notes">Grids and Not Grids</h1>
+  <ul>
+    <li>Susy started as Natalie Downs CSS System</li>
+    <li>Got tired of doing math!</li>
+    <li>Sass come out, so I created a mixin to do the math for me</li>
+    <li>Got tired of Natalie Downs system, and decided to make a hammer that could hit any nail</li>
+    <li>Guy built Susy knockoff called Salsa, did cool, inspirational things.</li>
+    <li>Singularity uses isolation instead of floats</li>
+    <li>Isolation is a float hack</li>
+    <li>Grouping declarations - things that don't change, then things that do, faster gzip</li>
+  </ul>
+</section>
+

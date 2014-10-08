@@ -1,0 +1,59 @@
+// -------------------------------------
+//   Settings
+// -------------------------------------
+// ----- @Font-Face Declarations, Variables
+// -------------------------------------
+
+// -------------------------------------
+//   @font-face
+// -------------------------------------
+
+$font-folders: 'cabritosans';
+$font-names: 'cabritosans-medium', 'cabritosans-demi', 'cabritosans-bold';
+
+@each $font-folder in $font-folders  {
+  @each $font-name in $font-names {
+    @font-face {
+      font-family: #{$font-name};
+      src: url('../fonts/#{$font-folder}/#{$font-name}.eot?#iefix') format('embedded-opentype'),
+           url('../fonts/#{$font-folder}/#{$font-name}.woff') format('woff'),
+           url('../fonts/#{$font-folder}/#{$font-name}.ttf') format('truetype'),
+           url('../fonts/#{$font-folder}/#{$font-name}.svg##{$font-name}') format('svg');
+    }
+  }
+}
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// ----- Colors ----- //
+$color-blue: #5c5b56;
+$color-light-blue: #eaf3f8;
+
+$color-light-gray: #f1efe9;
+$color-mid-light-gray: #808080;
+$color-gray: #eaeaea;
+$color-mid-gray: #666;
+$color-mid-dark-gray: #3f3f39;
+$color-dark-gray: #4d4d4d;
+
+$color-white: #f5f4f1;
+
+$color-green: #747501;
+$color-yellow: #e7ad10;
+$color-orange: #d8531e;
+
+$color-process-aqua: #00A6B2;
+$color-process-orange: #ea7c24;
+// ----- Fonts ----- //
+
+$font-cs-bold: 'cabritosans-bold', "Lucida Sans", sans-serif;
+$font-cs-medium: 'cabritosans-medium', "Lucida Sans", sans-serif;
+$font-cs-demi: 'cabritosans-demi', "Lucida Sans", sans-serif;
+
+$font-georgia: Georgia, serif;
+$font-arial: Arial, sans-serif;
+
+// ----- Grid ----- //
+$grid-container-padding: 50px;
